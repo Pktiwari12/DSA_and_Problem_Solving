@@ -1,4 +1,4 @@
-//Program to implement the stack using Linked list
+ //Program to implement the stack using Linked list
 // blue print of Stack data structure
 class Stack{
     // blue print of node of ll because we using linked list
