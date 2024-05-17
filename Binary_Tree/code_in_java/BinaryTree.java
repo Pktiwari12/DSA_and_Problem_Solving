@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
- class BinaryTree {
+ public class BinaryTree {
     public Node root;
     public BinaryTree(){
         this.root = null;
@@ -71,14 +71,14 @@ import java.util.Scanner;
     
 }
 // Driver Code
-public class Main{
-    public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
-        bt.create();
-        bt.preOrder(bt.root);
-        System.out.println();
-        bt.inOrder(bt.root);
-        System.out.println();
-        bt.postOrder(bt.root);
-    }
-}
+// public class Main{
+//     public static void main(String[] args) {
+//         BinaryTree bt = new BinaryTree();
+//         bt.create();
+//         bt.preOrder(bt.root);
+//         System.out.println();
+//         bt.inOrder(bt.root);
+//         System.out.println();
+//         bt.postOrder(bt.root);
+//     }
+// }
