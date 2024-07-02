@@ -1,11 +1,11 @@
 // this create an Exception
-class CircularQueue{
+public class CircularQueueUsingArray{
     // declaration of container Queue fields like size and array
     private int size;
     private int cir_queue[];
     private int front=-1;
     private int rear =-1;
-    public CircularQueue(int size)
+    public CircularQueueUsingArray(int size)
     {
         // the size of Queue
         this.size = size;
@@ -80,21 +80,21 @@ class CircularQueue{
         return returnvalue;
     }
 }
-public class CircularQueueUsingArray{
-    public static void main(String[] args) {
-        CircularQueue cq = new CircularQueue(5);
-        cq.enqueue(5);
-        cq.enqueue( 69);
-        cq.enqueue(17);
-        cq.enqueue(0);
-        System.out.println("the top element of Queue\t:-"+cq.peek());
-        System.out.println("The data items of Queue area/t:");
-        cq.display();
-        System.out.println();
-        System.out.println("After the deleleting data items :-");
-        cq.dequeue();
-        cq.dequeue();
-        cq.display();
+// public class CircularQueueUsingArray{
+//     public static void main(String[] args) {
+//         CircularQueue cq = new CircularQueue(5);
+//         cq.enqueue(5);
+//         cq.enqueue( 69);
+//         cq.enqueue(17);
+//         cq.enqueue(0);
+//         System.out.println("the top element of Queue\t:-"+cq.peek());
+//         System.out.println("The data items of Queue area/t:");
+//         cq.display();
+//         System.out.println();
+//         System.out.println("After the deleleting data items :-");
+//         cq.dequeue();
+//         cq.dequeue();
+//         cq.display();
         
-    }
-}
+//     }
+// }

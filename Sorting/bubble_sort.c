@@ -1,4 +1,4 @@
-// Program to implement bubble sort algorithm
+ // Program to implement bubble sort algorithm
 #include<stdbool.h>
 #include<stdio.h>
 void bubble_sort(int arr[],int size);

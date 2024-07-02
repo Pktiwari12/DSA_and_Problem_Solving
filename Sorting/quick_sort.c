@@ -34,7 +34,7 @@ int main()
         printf("%d\t",arr[i]);
     }
 
-}
+} 
 void quick_sort(int arr[],int lb,int ub)
 {
 	int loc;

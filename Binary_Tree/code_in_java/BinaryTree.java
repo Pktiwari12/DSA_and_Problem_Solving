@@ -11,12 +11,12 @@ import java.util.Scanner;
     // class of node of binary tree
     public static class Node{
         int data;
-        Node left;
-        Node right;
+        Node leftChild;
+        Node rightChild;
         public Node(int data){
             this.data = data;
-            this.left = null;
-            this.right = null;
+            this.leftChild = null;
+            this.rightChild = null;
         }
     }
 
@@ -32,40 +32,40 @@ import java.util.Scanner;
         if(this.root == null){
             this.root = newNode;
         }
-        System.out.println("For left child of "+newData);
-        newNode.left = create();
-        System.out.println("For right child of "+newData);
-        newNode.right = create();
+        System.out.println("For leftChild child of "+newData);
+        newNode.leftChild = create();
+        System.out.println("For rightChild child of "+newData);
+        newNode.rightChild = create();
         return newNode;
     }
     public void preOrder(Node root){
-        // Root Left Right
+        // Root leftChild rightChild
         if(root == null){
             return;
         }
         System.out.print(root.data+"\t");
-        preOrder(root.left);
-        preOrder(root.right);
+        preOrder(root.leftChild);
+        preOrder(root.rightChild);
     }
      // function to inorder traversig
      public void inOrder(Node root){
-        //  Left Root Right
+        //  leftChild Root rightChild
         if(root == null){
             return;
         }
-        inOrder(root.left);
+        inOrder(root.leftChild);
         System.out.print(root.data+"\t");
-        inOrder(root.right);
+        inOrder(root.rightChild);
     }
     // function to postorder traversig
     public void postOrder(Node root){
-        //  Left  Right Root
+        //  leftChild  rightChild Root
         if(root == null){
             return;
         }
         
-        postOrder(root.left);
-        postOrder(root.right);
+        postOrder(root.leftChild);
+        postOrder(root.rightChild);
         System.out.print(root.data+"\t");
     }
     
