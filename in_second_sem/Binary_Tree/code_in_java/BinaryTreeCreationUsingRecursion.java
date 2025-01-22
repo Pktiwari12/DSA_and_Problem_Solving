@@ -3,9 +3,9 @@
 
 import java.util.Scanner;
 
- public class BinaryTree {
+ public class BinaryTreeCreationUsingRecursion{
     public Node root;
-    public BinaryTree(){
+    public BinaryTreeCreationUsingRecursion(){
         this.root = null;
     }
     // class of node of binary tree
@@ -73,7 +73,7 @@ import java.util.Scanner;
 // Driver Code
 // public class Main{
 //     public static void main(String[] args) {
-//         BinaryTree bt = new BinaryTree();
+//         BinaryTreeCreationUsingRecursion bt = new BinaryTreeCreationUsingRecursion();
 //         bt.create();
 //         bt.preOrder(bt.root);
 //         System.out.println();

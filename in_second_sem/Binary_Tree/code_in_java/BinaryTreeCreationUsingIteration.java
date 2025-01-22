@@ -1,9 +1,9 @@
 // this program is not working properly for strict binary tree
 import java.util.Scanner;
-class BinaryTree{
+public class BinaryTreeCreationUsingIteration{
     // binary tree member variable which is root
     Node root;
-    public BinaryTree(){
+    public BinaryTreeCreationUsingIteration(){
         this.root = null;
     }
    // Method to create the binary tree
@@ -54,16 +54,16 @@ class BinaryTree{
     }
    
 }
-public class CreationBinaryTreeUsingIteration {
-    public static void main(String[] args) {
-        System.out.println("This Program is not working properly for strict binary tree."+
-        "\nproblem in size of cir_queue, so\n solution is take queue Using linked list,so for instance we take size 100.");
-        BinaryTree bt = new BinaryTree();
-       Node root =  bt.create();
-       BinaryTreeTraverse tr = new BinaryTreeTraverse();
-       tr.inOrder(root);
+// public class CreationBinaryTreeUsingIteration {
+//     public static void main(String[] args) {
+//         System.out.println("This Program is not working properly for strict binary tree."+
+//         "\nproblem in size of cir_queue, so\n solution is take queue Using linked list,so for instance we take size 100.");
+//         BinaryTree bt = new BinaryTree();
+//        Node root =  bt.create();
+//        BinaryTreeTraverse tr = new BinaryTreeTraverse();
+//        tr.inOrder(root);
        
        
-    }
+//     }
     
-}
+// }
