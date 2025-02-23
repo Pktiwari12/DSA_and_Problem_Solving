@@ -5,7 +5,7 @@ using namespace std;
 
 
 // bruteForce Approach (Simple Recursion )
-int countWays(int n){
+ int countWays(int n){
     if(n < 0){
         return 0;
     }
@@ -17,17 +17,6 @@ int countWays(int n){
     return leftCount + rightCount;
 }
 
-// using memoization 
-int countWaysUsingMemo(int n , vector<int>& memo){
-    if(n < 0){
-        return 0;
-
-    }
-    if(n == 0 ){
-        return 1;
-    }
-    
-}
 
 int main(){
     cout << "Enter the number of stairs to climb "<< endl;
