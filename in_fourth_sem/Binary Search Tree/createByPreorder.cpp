@@ -57,7 +57,3 @@ Node* createBST(vector <int >&preOrder){
     }
     return root;
 }
-
-int main(){
-    cout << "Enter the "
-}
