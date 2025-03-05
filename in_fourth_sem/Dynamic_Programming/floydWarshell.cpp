@@ -3,17 +3,29 @@
 using namespace std;
 void printMatrix(vector<vector<int>>&m);
 vector<vector<int>>Matrix(int n);
-vector<vector<int>>FloydWarshell(int n , vector<vector<int>>adj);
+vector<vector<int>>FloydWarshell(int n , vector<vector<int>>&adj);
 int main(){
-    vector<vector<int>>adj = Matrix(4);
+    // vector<vector<int>>adj = Matrix(8);
+    vector<vector<int>>adj = {
+        {0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 0, 2, 1000, 1000, 1000, 1000, 1000},
+    {0, 1000, 0, 6, 4, 5, 5, 1000},
+    {0, 5, 1000, 0, 3, 1000, 4, 1000},
+    {0, 1000, 1000, 1000, 0, 7, 1000, 1},
+    {0, 1000, 5, 1000, 7, 0, 1000, 1000},
+    {0, 1000, 5, 4, 1000, 1000, 0, -10},
+    {0, 1000, 3, 1000, 1000, 1000, 1000, 0}
+    };
     cout << endl << endl;
     printMatrix(adj);
-    vector<vector<int>>res = FloydWarshell(4, adj);
+    vector<vector<int>>res = FloydWarshell(7, adj);
     cout << endl << endl;
     printMatrix(res);
 }
 
-vector<vector<int>> FloydWarshell(int n , vector<vector<int>>adj){
+vector<vector<int>> FloydWarshell(int n , vector<vector<int>>&adj){
+    // printMatrix(adj);
+    // cout << "hi";
     for(int k = 1 ; k <= n ; k++ ){
         for(int i = 1 ; i<=n ; i++){
             for(int j = 1 ; j<=n ; j++){
