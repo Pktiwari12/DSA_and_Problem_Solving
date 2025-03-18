@@ -13,36 +13,43 @@ class Solution {
                 return false;
             }
             int i = 0 , sum = 0 , target = totalSum/2;
-            return solve(nums,i, target, sum);
+            vector<vector<int>>memo(nums.size()+1, vector<int>(target+1, -1));
+            return solve(nums,i, target, sum, memo);
         }
-        bool solve(vector<int>& nums, int i , int& target , int& sum){
+        bool solve(vector<int>& nums, int i , int& target , int& sum, vector<vector<int>>&memo){
             if(i >= nums.size() || sum > target){
                 return false;
             }
             if(sum == target){
+                memo[i][sum] = true;
                 return true;
+            }
+            if(memo[i][sum] != -1){
+                return memo[i][sum];
             }
 
              // Includeing the ith index
              sum += nums[i];
-             if(solve(nums, i+1, target, sum)){
+             if(solve(nums, i+1, target, sum,memo)){
+                memo[i][sum] = true;
                 return true;
              }
  
              // Excluding the ith index
              sum -= nums[i];
-             if(solve(nums, i+1, target, sum)){
+             if(solve(nums, i+1, target, sum,memo)){
+                memo[i][sum] = true;
                 return true;
              }
            
-             return false;
+             return memo[i][sum] = false;
 
         }
     };
 int main(){
     Solution s;
     cout << "hello";
-    vector<int>nums = {1,5,11,5};
+    vector<int>nums = {1,3, 2, 1, 4, 5,6, 7, 8, 9, 10, 19, 23, 23, 12, 23, 12};
     bool result = s.canPartition(nums);
     cout << result;
 
