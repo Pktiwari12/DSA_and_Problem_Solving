@@ -3,6 +3,8 @@
     #include<iostream>
     #include<vector>
     using namespace std;
+
+    // Main alogorithm 
     void solve(vector<int>&nums, int i , int selectedSum, int remainedSum, int targetSum, vector<vector<int>>& result, vector<int>& subset ){
         // base condition 
         if(i >= nums.size()){
