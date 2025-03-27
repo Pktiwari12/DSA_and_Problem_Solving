@@ -8,10 +8,14 @@ class Solution {
             vector<int> temp;
             vector<vector<int>> result;
             vector<bool>included(nums.size(), false);       // we check it's presence by index not value
-            solve(nums, temp, result, included);
+            // solve(nums, temp, result, included);
+
+            solve2(nums, 0, result);
             return result;
             
         }
+
+        // First Approach 
         void  solve(vector<int>& nums, vector<int>& temp,vector<vector<int>>& result, vector<bool>& included ){
             if(temp.size() == nums.size()){     // Result Boundary Function 
                 result.push_back(temp);
@@ -30,8 +34,31 @@ class Solution {
                     temp.pop_back();
                 }
             }
-    
         }
+
+        // Second Approach 
+        void solve2(vector<int>& nums, int level, vector<vector<int>>& result){
+            // result boundary function
+            if(level >= nums.size()){
+                result.push_back(nums);
+                return;
+            }
+            for(int i = level ; i < nums.size() ; i++){
+                // Do 
+                swap(nums[i], nums[level]);
+                // Explore
+                solve2(nums, level+1, result);
+                // Undo
+                swap(nums[i], nums[level]);
+            }
+        }
+        void swap(int& a, int& b){
+            int c; 
+            c = a;
+            a = b;
+            b = c;
+        }
+    
     
     };
 
