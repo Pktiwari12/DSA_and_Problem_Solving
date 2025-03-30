@@ -4,10 +4,7 @@ using namespace std;
 class Solution {
     public:
         vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-                vector<vector<int>> result;
-                vector<int> temp;
-                solve(candidates, target, 0, temp, result );
-                return result;
+                
     
         }
         void solve(vector<int>& candidates, int remTarget, int start , vector<int>& temp, vector<vector<int>>& result){
