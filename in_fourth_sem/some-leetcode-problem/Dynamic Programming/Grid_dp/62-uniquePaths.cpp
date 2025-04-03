@@ -38,7 +38,7 @@ class Solution2 {
             return solve(0,0,m,n, memo);
         }
         int solve(int i, int j, int m, int n, vector<vector<int>>& memo){
-            if(i == m-1 || j == n-1){
+            if(i == m-1 && j == n-1){
                 return 1;
             }
             if(i >= m || j >= n){
