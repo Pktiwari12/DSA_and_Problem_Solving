@@ -3,6 +3,7 @@
 using namespace std;
 class Solution {
     public:
+        int count = 0;
         vector<vector<string>> solveNQueens(int n) {
             // create a board
             vector<string> board(n, string(n,'.'));
@@ -15,6 +16,7 @@ class Solution {
             // base condition 
             if(row >= board.size()){
                 result.push_back(board);
+                count++;
                 return;
             }
     
@@ -70,6 +72,8 @@ class Solution {
                 cout << endl;
             }
             cout<< endl<< endl << endl;
+
+            cout << s.count;
 
         }
     }
