@@ -29,7 +29,7 @@ bool cmp(Node * n1 , Node *n2){
 
 class Huffman{
     public:
-        void encode(string message){
+        string encode(string message){
             unordered_map<char, int>freq_table = freqTable(message);
 
             // // printing the frequency table
@@ -77,9 +77,11 @@ class Huffman{
             cout << "\n" << "Encoded message " << endl;
             cout << "\n\n" << encoded_str << endl << endl;
             cout << "\n" << "size of encoded message " << encoded_str.size() <<  endl;
+            return encoded_str;
 
         }
 
+      
     private:
         // to count the frequencies of the character in the table
         unordered_map<char, int> freqTable(string message)
