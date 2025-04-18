@@ -1,5 +1,4 @@
-//  Both matrix must be same dimention 
-
+//  Both matrix must be same dimention  and power of 2
 
 #include<iostream>
 #include<vector>
@@ -68,12 +67,35 @@ class Multiplicaton{
             vector<vector<int>>p5 = strassanMultiply(t5,t6);
             vector<vector<int>>p6 = strassanMultiply(t7,t8);
             vector<vector<int>>p7 = strassanMultiply(t9,t10);
+
+            // Calculate the C11, C12, C21, C22
+            vector<vector<int>>temp1 = add_mat(p5,p4);
+            vector<vector<int>>temp2 = sub_mat(temp1, p2);
+
+            vector<vector<int>>c11 = add_mat(temp2, p6);
+            vector<vector<int>>c12 = add_mat(p1,p2);
+            vector<vector<int>>c21 = add_mat(p3,p4);
+            temp1 = add_mat(p1, p5);
+            temp2 = sub_mat(temp1, p3);
+            vector<vector<int>>c22 = sub_mat(temp2, p7);
+
+            //merging the C11, C12, C21, C22 into one matrix
+            vector<vector<int>>result(row, vector<int>(col,0));
+            for(int i = 0 ; i < new_row ; i++){
+                for(int j = 0 ; j < new_col ; j++){
+                    result[i][j] = c11[i][j];
+                    result[i][j + new_col] = c12[i][j];
+                    result[i + new_row][j] = c21[i][j];
+                    result[i+new_row][j + new_col] = c22[i][j];
+                }
+            }
+            return result;
         }
 };
 
 int main(){
     int n;
-    cout << "Enter the size of the matrix" << endl;
+    cout << "Enter the size(power of 2) of the matrix" << endl;
     cin >> n;
     cout << "Enter the values for matirx 1" << endl << endl;
     vector<vector<int>>A = input_mat(n);
@@ -86,6 +108,12 @@ int main(){
     cout << endl << endl;
     cout << "Matrix 2 is " << endl << endl;
     printMatrix(B);
+
+    Multiplicaton m;
+    vector<vector<int>> result = m.strassanMultiply(A, B);
+    cout << endl << endl;
+    cout << "Resultandt matrix when matrix_1 is multiplied with matrix_2" << endl << endl;
+    printMatrix(result);
     
 
 }
