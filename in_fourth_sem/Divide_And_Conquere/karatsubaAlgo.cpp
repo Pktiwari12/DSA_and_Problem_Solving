@@ -17,6 +17,7 @@ class Mulitiplication{
             int b = x % customPow(n/2);
             int c = y / customPow(n/2);
             int d = y % customPow(n/2);
+            
             int p = karatsuba(a,c);
             int q = karatsuba(b,d);
             int r = karatsuba(a+b,c+d);
