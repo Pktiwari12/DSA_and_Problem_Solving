@@ -4,16 +4,21 @@
 #include<functional>
 #include<climits>
 using namespace std;
+
 void inputForDirectedGraph(vector<vector<pair<int, int>>>& adj_list, int e);
 void inputForUnDirectedGraph(vector<vector<pair<int, int>>>& adj_list, int e);
 bool cmp(pair<int, int>, pair<int , int>);
 void printAdjList(vector<vector<pair<int, int>>>adj_list);
+
+
 class Solution{
     public:
         void  shortestPath(int src , vector<vector<pair<int, int>>>& adj_list){
+
             vector<int> distance(adj_list.size(), INT_MAX);
             // takinng a min priority queue container so that we take a optimal decision in every stage
             priority_queue<pair<int, int>, vector<pair<int, int>>, function<bool(pair<int, int>, pair<int, int>)>> pq(cmp);
+
 
             // now we start the source vertex 
             distance[src] = 0;
@@ -24,7 +29,9 @@ class Solution{
             
                 // relaxing the vertex if required
                 for(pair<int, int>adj_v : adj_list[selected_node.first]){
+
                     if(distance[adj_v.first] > distance[selected_node.first] + adj_v.second){
+
                         distance[adj_v.first] = distance[selected_node.first] + adj_v.second;
                         pq.push({adj_v.first, distance[adj_v.first]});
                     }
@@ -33,6 +40,7 @@ class Solution{
 
             // printing the all minimal distances of vetexex from source vertex
             cout << "Minimum distance of every vertex from the vertex  " << src + 1 << endl;
+            
             for(int i = 0 ; i < adj_list.size(); i++){
                 if(distance[i] == INT_MAX){
                     cout << "vertex " << i+1 << "\t\t" << distance[i] << "\t i.e. no path"<< endl;
