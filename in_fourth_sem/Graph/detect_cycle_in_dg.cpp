@@ -15,6 +15,8 @@ vector<vector<int>>edgesIntoAdjacencyList(int V, vector<vector<int>>& edges){
 }
 
 void print2Vector(vector<vector<int>>& );
+
+
 class Solution {
     public:
       bool isCyclic(int V, vector<vector<int>> &edges) {
@@ -28,26 +30,23 @@ class Solution {
         vector<bool>inRecursion(V,false);
 
         for(int i = 0 ; i < V ; i++){
-            if(visited[i] == false && solveUsingDfs(adj, i, visited,inRecursion, -1)){
+            if(visited[i] == false && solveUsingDfs(adj, i, visited,inRecursion)){
                 return true;
             }
         }
         return false;
           
       }
-      bool solveUsingDfs(vector<vector<int>>& adj, int u, vector<bool>& visited, vector<bool> inRecursion, int parent){
+      bool solveUsingDfs(vector<vector<int>>& adj, int u, vector<bool>& visited, vector<bool> inRecursion){
             visited[u] = true;
             inRecursion[u] = true;
             // now explore other vertices
             for(int v : adj[u]){
-                if(v == parent){
-                    continue;
-                }
                 // termination condition
                 if(visited[v] == true && inRecursion[v] == true){
                     return true;
                 }
-                if(solveUsingDfs(adj, v, visited,inRecursion, u)){
+                if(solveUsingDfs(adj, v, visited,inRecursion)){
                     return true;
                 }
 
