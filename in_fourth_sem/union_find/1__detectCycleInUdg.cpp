@@ -70,3 +70,6 @@ int main(){
     cout << s.isCycle(V, edges);
 
 }
+
+// Space Complextiy :- O(n)
+// time Complexity :- O(n^2)
