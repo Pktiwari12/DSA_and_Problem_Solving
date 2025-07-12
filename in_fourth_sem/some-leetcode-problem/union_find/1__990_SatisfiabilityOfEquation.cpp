@@ -109,16 +109,22 @@ public:
         unordered_map<char, int>rank;
         for(int i = 97 ; i <= 122 ; i++){
             make_set(char(i), parent);
-            cout << parent[char(i)] << "\t";
+            // cout << parent[char(i)] << "\t";
         }
-
+        // first of all we prepare the set with conditon '='
         for(int i = 0 ; i < equations.size() ; i++){
             if(equations[i][1] == '='){
                 set_union(equations[i][0], equations[i][3],parent, rank);
             }else{
+               
+            }
+        }
+        // after set preparation, we check '!=' condition whether this vaild or not for satisfiability.
+        for(int i = 0 ; i < equations.size() ; i++){
+            if(equations[i][1] == '!'){
                 char parent1 = find_set(equations[i][0], parent);
                 char parent2 = find_set(equations[i][3], parent);
-                if(parent1 == parent2){
+                if(parent1 == parent2){     // if both element present in one set, ie. equation does not hold satisfiability. 
                     return false;
                 }
             }
@@ -155,7 +161,6 @@ public:
 
     }
 };
-
 // By this logic, The following test case 's result is incorrect. So in the logic , few refinement is necessary.
 // ["a==b","b!=c","c==a"]
 
