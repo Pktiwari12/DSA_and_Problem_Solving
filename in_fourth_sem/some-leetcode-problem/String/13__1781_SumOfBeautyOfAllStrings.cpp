@@ -14,6 +14,7 @@ public:
                 int mostFreq = INT_MIN;
                 int minFreq = INT_MAX;
                 // here we can optimise because without following for loop , we can find most_frequent character in string. but I am unable to find the minFrequent
+                // following can not be optimised through my own logic.("aabcbaa")
                 for(auto key_value : um){
                     mostFreq = max(mostFreq,key_value.second);
                     minFreq = min(minFreq, key_value.second);

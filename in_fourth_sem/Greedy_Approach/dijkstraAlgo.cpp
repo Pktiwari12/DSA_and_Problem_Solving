@@ -27,7 +27,7 @@ class Solution{
             while(pq.empty() == false){
                 pair<int, int>selected_node = pq.top(); pq.pop();
             
-                // relaxing the vertex if required
+                // relaxing neighbour  the vertex if required
                 for(pair<int, int>adj_v : adj_list[selected_node.first]){
 
                     if(distance[adj_v.first] > distance[selected_node.first] + adj_v.second){
