@@ -8,29 +8,32 @@ using namespace std;
 class Solution3 {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
+        // no possible path
         if(grid[grid.size()-1][grid.size()-1] == 1 || grid[0][0] == 1){
             return -1;
         }
+        // grid with size 1 
         if(grid.size() == 1 && grid[0][0] == 0){
             return 1;
         }
         queue<pair<pair<int,int>, int>> q; // index, step-count
         // vector<vector<bool>>visited(grid.size(), vector<bool>(grid.size(), false));
+
+        // 8 direction 
         vector<pair<int,int>> direction = {
             {0,1},{1,0},{0,-1},{-1,0},{1,1},{-1,-1},{1,-1},{-1,1}
         };
-        // initially strat cell
+        // initially start cell
         int count = 1;
         q.push({{0,0},1});
         grid[0][0] = -1;        // marking visited
         pair<int,int>cell;
-        int global_count = 1;
         while(q.empty() == false){
             cell = q.front().first;
             count = q.front().second;
             q.pop();
             
-            // following conditions may raise index out of bound error.
+            //Traverse neighbour cells with value 0
             for(auto dir : direction){
                 int x = cell.first + dir.first;
                 int y = cell.second + dir.second;
@@ -77,7 +80,6 @@ public:
         q.push({{0,0},1});
         visited[0][0] = true;
         pair<int,int>cell;
-        int global_count = 1;
         while(q.empty() == false){
             cell = q.front().first;
             count = q.front().second;
@@ -128,7 +130,6 @@ public:
         int count = 1;
         q.push({{0,0},1});
         pair<int,int>cell;
-        int global_count = 1;
         while(q.empty() == false){
             cell = q.front().first;
             count = q.front().second;
