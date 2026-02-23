@@ -29,6 +29,7 @@ class Solution {
             parent[i] = i;
         }
     }
+
     bool set_union(vector<int>& e, vector<int>& parent, vector<int>& rank){
         int parent_u = findSet(e[0], parent);
         int parent_v = findSet(e[1], parent);
@@ -53,6 +54,7 @@ class Solution {
         return false;
     }
     
+    
     int findSet(int v, vector<int>& parent){
         if(v == parent[v]){
             return v;
@@ -69,7 +71,7 @@ int main(){
     Solution s;
     cout << s.isCycle(V, edges);
 
-}
+}   
 
 // Space Complextiy :- O(n)
 // time Complexity :- O(n^2)
